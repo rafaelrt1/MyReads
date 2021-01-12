@@ -13,8 +13,16 @@ Para simplificar o processo de desenvolvimento, um backend já foi criado para e
 
 ### `getAllBooks`
 
-Assinatura de função:
+> Pesquisa todos os livros na API de backend e retorna os dados da request.
 
-```js
-getAllBooks()
+```jsx
+getAllBooks().then(function(payload) {
+  const books = payload.books // [{ book1 }, { book2 }, ...]
+  const data = payload.data // body completo retornado pela API
+  const response = payload.response // metadados da request
+
+  // ...
+}).catch(function(error) {
+  // ...
+})
 ```
