@@ -1,32 +1,72 @@
 # Avaliação
 
 Esse é o template inicial para o projeto final que compreende o módulo 1 do curso de Formação em Oracle Cloud Commerce. O objetivo desse template é poupar tempo com um exemplo estático de HTML e CSS, porém sem nenhuma funcionalidade que é necessária para finalizar o projeto. Seu trabalho aqui é adicionar interatividade ao projeto refatorando o código estático disponível nesse template.
+
+O objetivo é ter um aplicativo que mostre quais livros eu já li, estou lendo ou quero ler em estantes, preenchidas pelos dados consumidos da API e usando jQuery para montar a tela dinamicamente conforme os dados são modificados.
 ## Começar
 
 Você pode começar abrindo o arquivo `index.html` no navegador de internet e editor de texto preferido.
+
+## Exemplo da Aplicação
+
+ - https://compasso-reads.netlify.app
 
 ## Servidor Backend
 
 Para simplificar o processo de desenvolvimento, um backend já foi criado para esse app. O arquivo [`api.js`](api.js) contém os métodos necessários para fazer as operações necessárias no backend:
 
-* [`getAllBooks`](#getAllBooks)
+* [`getBook`](#getBook)
+* [`getMyBooks`](#getMyBooks)
+* [`searchBooks`](#searchBooks)
+* [`updateBook`](#updateBook)
 
-### `getAllBooks`
+### `getBook`
 
-> Pesquisa todos os livros na API de backend e retorna os dados da request.
+> Pesquisa e retorna os dados de um dos meus livros.
 
 ```jsx
-getAllBooks().then(function(payload) {
-  const books = payload.books // [{ book1 }, { book2 }, ...]
-  const data = payload.data // body completo retornado pela API
-  const response = payload.response // metadados da request
+getBook(BOOK_ID).then(function(data) {
+  const book = data.book
 
-  // ...
-}).catch(function(error) {
   // ...
 })
 ```
 
-## Exemplo
+### `getMyBooks`
 
- - https://compasso-reads.netlify.app/
+> Pesquisa e retorna todos os meus livros.
+
+```jsx
+getMyBooks().then(function(data) {
+  const books = data.books
+
+  // ...
+})
+```
+
+### `searchBooks`
+
+> Pesquisa e retorna todos os livros de um determinado assunto, que podem ou não estar nos meus livros.
+> O termo pesquisado deve ser um dos listados nas [palavras-chave](./PALAVRAS_CHAVE.md), outros termos não funcionarão.
+
+```jsx
+searchBooks(PALAVRA_CHAVE).then(function(data) {
+  const books = data.books
+
+  // ...
+})
+```
+
+### `updateBook`
+
+> Atualiza um livro para que ele pertença à uma determinada estante. Retorna todas as categorias da estante e os id's de livros pertencentes a cada estante.
+
+```jsx
+updateBook(BOOK, ESTANTE).then(function(data) {
+  const estouLendoIDs = data.currentlyReading
+  const queroLerIDs = data.wantToRead
+  const lidosIDs = data.read
+
+  // ...
+})
+```
