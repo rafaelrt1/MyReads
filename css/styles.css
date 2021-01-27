@@ -31,6 +31,32 @@ body,
 
 /* main page */
 
+.menu {
+  background-color: #444444;
+}
+
+#menu-link {
+  color: #EFEFEF;
+}
+
+#menu-link:hover {
+  color: #3311FF;
+}
+
+form .pesquisa-botao {
+  color: #3311FF;
+  border-color: #FFFFFF;
+}
+
+form .pesquisa-botao:hover {
+  background-color: #FFFFFF;
+}
+
+.gif-loading {
+  display: none;
+  height: 20vh;
+}
+
 .list-books-title {
   padding: 10px 0;
   background: #2e7c31;
@@ -52,6 +78,58 @@ body,
   padding: 0 10px 20px;
 }
 
+.livros-lendo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.livros-lidos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.livros-quero-ler {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.estilo-geral-card {
+  margin: 5vh 1vw;
+}
+
+.card-espaco {
+  width: 12rem;
+  height: 50vh;
+}
+
+#imagem-card {
+  height: 200px;
+}
+
+.estilo-card {
+  justify-content: center;
+  margin: 3vh 3vw 3vh 3vw;
+}
+
+.titulo-card {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.texto-card {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pesquisa-erro {
+  display: none;
+}
+
 @media (min-width: 600px) {
   .bookshelf {
     padding: 0 20px 40px;
@@ -71,8 +149,24 @@ button:active {
   outline: none;
 }
 
+.input-search-books {
+  width: 20%;
+}
+
 .search-books-results {
-  padding: 80px 10px 20px;
+  padding: 10vh 4vw 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.texto-pesquisa {
+  margin: 5vh 0 0 7vw;
+  display: none;
+}
+
+.pesquisa-palavra {
+  display: none;
 }
 
 /* books grid */
@@ -148,4 +242,8 @@ button:active {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+@media screen and (min-width: 320px) {
+
 }
