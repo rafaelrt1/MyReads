@@ -1,9 +1,9 @@
 function pesquisaLivros() {
   var resultadoPesquisa = $(".search-books-results"); 
   var botaoPesquisar = $("#start-search");
-  var erro = $(".pesquisa-erro"); 
-
+  var erro = $(".pesquisa-erro");
   botaoPesquisar.on("click", function(event) {
+    atualizaPagina();
     gifCarregando.show();
     textoPesquisa.css("display", "none");
     palavraPesquisada.css("display", "none");
@@ -14,6 +14,13 @@ function pesquisaLivros() {
     searchBooks(tituloLivro).then(function(data) {
       const books = data.books;
       montaLivrosPesquisa(tituloLivro, books);
+      
+      let opcaoMover = $(".opcao-livro");
+      opcaoMover.on("change", function() {
+        id = this.id;
+        var valueSelected = this.value;
+        trocaEstante(books, id, valueSelected);
+      })
     })
   })
 }

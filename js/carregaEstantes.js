@@ -1,12 +1,13 @@
 function carregaEstantes() {
-  gifCarregando.toggle();
+  gifCarregando.show();
   
   //mostra meus livros
   getMyBooks().then(function(data) {
     const books = data.books;
     montaMeusLivros(books);
-    let opcaoMover = $(".opcao-livro");
+    gifCarregando.hide();
     
+    let opcaoMover = $(".opcao-livro");
     opcaoMover.on("change", function() {
       id = this.id;
       var valueSelected = this.value;

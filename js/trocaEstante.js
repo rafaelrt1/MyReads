@@ -1,21 +1,20 @@
 function trocaEstante (books, id, valueSelected) {
-
-    if(valueSelected==1) {
-      estante = "estouLendoIDs";
-    }
-    else if (valueSelected==2) {
-      estante = "queroLerIDs";
-    }
-    else if (valueSelected==3) {
-      estante = "lidosIDs";
-    }
-    
-    console.log(estante);
-    console.log(id);
-    
-    updateBook(id, estante).then(function() {
-      
-      console.log("fiz update");
-      carregaEstantes();
-    })
+  livrosLidos.text("");
+  livrosLendo.text("");
+  queroLer.text("");
+  
+  if(valueSelected==1) {
+    estante = "currentlyReading";
   }
+  else if (valueSelected==2) {
+    estante = "wantToRead";
+  }
+  else if (valueSelected==3) {
+    estante = "read";
+  }
+  
+  updateBook({id}, estante).then(function() {
+    atualizaPagina();
+    carregaEstantes();
+  })
+}

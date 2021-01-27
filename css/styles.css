@@ -31,6 +31,10 @@ body,
 
 /* main page */
 
+main {
+  margin-top: 10vh;
+}
+
 .menu {
   background-color: #444444;
 }
@@ -54,7 +58,8 @@ form .pesquisa-botao:hover {
 
 .gif-loading {
   display: none;
-  height: 20vh;
+  height: 10vh;
+  padding-left: 10  vw;
 }
 
 .list-books-title {
@@ -130,6 +135,16 @@ form .pesquisa-botao:hover {
   display: none;
 }
 
+.rodape {
+  background-color:#444444;
+}
+
+.texto-rodape {
+  color: #CCCCCC;
+  text-align: center;
+  padding-top: 2vh;
+}
+
 @media (min-width: 600px) {
   .bookshelf {
     padding: 0 20px 40px;
@@ -154,7 +169,7 @@ button:active {
 }
 
 .search-books-results {
-  padding: 10vh 4vw 5vh;
+  padding: 1vh 4vw 5vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

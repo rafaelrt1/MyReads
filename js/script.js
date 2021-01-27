@@ -37,7 +37,6 @@ function montaMeusLivros (books) {
                 <option class="opcao-mover" value="1">Estou lendo</option>
                 <option class="opcao-mover" value="2">Quero ler</option>
                 <option class="opcao-mover" value="3">Lidos</option>
-                <option class="opcao-mover" value="4">Remover</option>
               </select>
             </div>
           </div>
@@ -72,7 +71,6 @@ function montaLivrosPesquisa (tituloLivro, books) {
                 <option class="opcao-mover" value="1">Estou lendo</option>
                 <option class="opcao-mover" value="2">Quero ler</option>
                 <option class="opcao-mover" value="3">Lidos</option>
-                <option class="opcao-mover" value="4">Remover</option>
               </select>
             </div>
           </div>
@@ -111,4 +109,10 @@ function exibeResultadoPesquisa(tituloLivro, listaItem) {
   resultadoPesquisa.append(listaItem);
   resultadoPesquisa.css("display", "flex");
   gifCarregando.hide();
+}
+
+function atualizaPagina() {
+  livrosLendo.text("");
+  livrosLidos.text("");
+  queroLer.text("");
 }
