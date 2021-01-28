@@ -1,26 +1,16 @@
-function pesquisaLivros() {
-  var resultadoPesquisa = $(".search-books-results"); 
-  var botaoPesquisar = $("#start-search");
-  var erro = $(".pesquisa-erro");
-  botaoPesquisar.on("click", function(event) {
-    atualizaPagina();
-    gifCarregando.show();
-    textoPesquisa.css("display", "none");
-    palavraPesquisada.css("display", "none");
-    event.preventDefault();
-    resultadoPesquisa.text("");
-    var tituloLivro = $("#input-search-books").val();
+function pesquisaLivros(tituloLivro) {
+  searchBooks(tituloLivro).then(function(data) {
+    const books = data.books;
+    montaLivrosPesquisa(tituloLivro, books);
     
-    searchBooks(tituloLivro).then(function(data) {
-      const books = data.books;
-      montaLivrosPesquisa(tituloLivro, books);
-      
-      let opcaoMover = $(".opcao-livro");
-      opcaoMover.on("change", function() {
-        id = this.id;
-        var valueSelected = this.value;
-        trocaEstante(books, id, valueSelected);
-      })
+    let opcaoMover = $(".opcao-livro");
+    opcaoMover.on("change", function(event) {
+      event.preventDefault();
+      id = this.id;
+      let valueSelected = this.value;
+      titulo = this.parentNode.children[0].innerHTML;
+      console.log(titulo);
+      trocaEstante(books, id, valueSelected);
     })
   })
 }

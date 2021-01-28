@@ -19,9 +19,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-group">
               <li class="nav-item">
-                <a id="menu-link" class="nav-link" aria-current="page" href="estou-lendo.html">Estou lendo</a>
+                <a id="menu-link" class="nav-link active" aria-current="page" href="estou-lendo.html">Estou lendo</a>
               </li>
               <li class="nav-item">
                 <a id="menu-link" class="nav-link" href="quero-ler.html">Quero ler</a>
@@ -40,13 +40,19 @@
     </header>
     
     <main>
-      <img class="giphy-embed gif-loading" src="img/giphy.gif">
+      <section class="mudanca-estante">
+        <div class="modal-mudanca">
+          <p class="texto-alerta-mudanca"></p>
+        </div>
+      </section>
+      
       <section class="livros-lendo"></section>
-      <section class="search-books"></section>
+      <section class="search-books">
+        <img class="giphy-embed gif-loading" src="img/giphy.gif">
         <h4 class="pesquisa-erro"></h4>
         <h4 class="texto-pesquisa">Exibindo resultados para pesquisa por: </h4>
-        <h4 class="pesquisa-palavra"></h4>
         <section class="search-books-results"></section>
+      </section>
     </main>
 
     <footer class="rodape fixed-bottom">
