@@ -1,13 +1,11 @@
 function pesquisaLivros(tituloLivro) {
   searchBooks(tituloLivro).then(function(data) {
+    erroPesquisa.hide();
     const books = data.books;
     if(books.error) {
       let erroPesquisa = $(".pesquisa-erro");
       erroPesquisa.text("Desculpe. Não conseguimos encontrar nenhum livro pela palavra pesquisada.");
       erroPesquisa.show();
-      setTimeout(function(){
-        erroPesquisa.hide();
-      }, 4000)
       gifCarregando.hide();
     }
     else {

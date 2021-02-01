@@ -128,7 +128,7 @@ function atualizaPagina() {
 }
 
 function desceConteudo() {
-  erroPesquisa.toggleClass("desce-conteudo");
+  //erroPesquisa.toggleClass(".desce-erro-pesquisa");
   botaoHamburger.css("transition", "1s");
   livrosLendo.toggleClass("desce-conteudo");
   livrosLidos.toggleClass("desce-conteudo-lidos");

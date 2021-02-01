@@ -131,6 +131,21 @@ form .pesquisa-botao:hover {
   text-align: center;
 }
 
+.desce-conteudo-lidos {
+  transform: translate(0, 0);
+  transition: 0s;
+}
+
+.desce-conteudo {
+  transform: translate(0, 0);
+  transition: 0s;
+}
+
+.desce-conteudo-pesquisa {
+  transform: translate(0, 0);
+  transition: 0s
+}
+
 .rodape {
   background-color:#444444;
   position: fixed;
@@ -182,7 +197,7 @@ form .pesquisa-botao:hover {
   .modal-mudanca {
     margin-top: 3vh;
   }
-  
+
   .desce-conteudo-lidos {
     transform: translate(0, 16%);
     transition: 1s;
@@ -269,9 +284,41 @@ form .pesquisa-botao:hover {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .desce-conteudo-lidos {
+    transform: translate(0, 0);
+    transition: 0s;
+  }
+
+  .desce-conteudo {
+    transform: translate(0, 0);
+    transition: 0s;
+  }
+
+  .desce-conteudo-pesquisa {
+    transform: translate(0, 0);
+    transition: 0s
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .card-espaco {
     width: 12rem;
     height: 33vh;
+  }
+
+  .desce-conteudo-lidos {
+    transform: translate(0, 0);
+    transition: 0s;
+  }
+
+  .desce-conteudo {
+    transform: translate(0, 0);
+    transition: 0s;
+  }
+
+  .desce-conteudo-pesquisa {
+    transform: translate(0, 0);
+    transition: 0s
   }
 }
