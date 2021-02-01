@@ -17,7 +17,7 @@ function trocaEstante (books, id, valueSelected) {
   }
   
   updateBook({id}, estante).then(function() {
-    atualizaPagina();
+    //atualizaPagina();
     carregaEstantes();
 
     if (estante == "read"){

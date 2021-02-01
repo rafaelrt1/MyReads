@@ -13,12 +13,13 @@ let tituloLivro = $("#input-search-books").val();
 let opcaoMover = $(".opcao-livro");
 let botaoPesquisar = $("#start-search");
 let botaoHamburger = $("#navbarTogglerDemo02");
+let erroPesquisa = $(".pesquisa-erro");
 
 function montaMeusLivros (books) {
   books.forEach(function(book){
     let id = book.id;
-    if(book.imageLinks && book.imageLinks.smallThumbnail) {
-      imagem = book.imageLinks.smallThumbnail;
+    if(book.imageLinks && book.imageLinks.thumbnail) {
+      imagem = book.imageLinks.thumbnail;
     }
     else{
       imagem = "https://cima-afrique.org/cima/images/not-available.png";
@@ -56,8 +57,8 @@ function montaMeusLivros (books) {
 function montaLivrosPesquisa (tituloLivro, books) {
   books.forEach(function(book){
     let id = book.id;
-    if(book.imageLinks && book.imageLinks.smallThumbnail) {
-      imagem = book.imageLinks.smallThumbnail;
+    if(book.imageLinks && book.imageLinks.thumbnail) {
+      imagem = book.imageLinks.thumbnail;
     }
     else{
       imagem = "https://cima-afrique.org/cima/images/not-available.png";
@@ -127,6 +128,7 @@ function atualizaPagina() {
 }
 
 function desceConteudo() {
+  erroPesquisa.toggleClass("desce-conteudo");
   botaoHamburger.css("transition", "1s");
   livrosLendo.toggleClass("desce-conteudo");
   livrosLidos.toggleClass("desce-conteudo-lidos");
@@ -142,6 +144,12 @@ function sobeConteudo() {
 }
 
 function mostraAvisoMudanca() {
+  botaoHamburger.on("show.bs.collapse", function() {
+    desceConteudo();
+  })
+  botaoHamburger.on("hide.bs.collapse", function(){
+    sobeConteudo();
+  })
   var alertaMudanca = $(".modal-mudanca");
   var textoAlertaMudanca = $(".texto-alerta-mudanca");
   if (prateleira == "none"){
@@ -154,10 +162,4 @@ function mostraAvisoMudanca() {
   setTimeout(function () { 
     alertaMudanca.fadeOut(3000);  
   }, 2000);
-  //carregaEstantes();
-  //atualizaPagina();
-  //livrosLendo.removeClass("desce-conteudo").addClass("transicao-padrao");
-  ///livrosLidos.removeClass("desce-conteudo-lidos").addClass("transicao-padrao");
-  //queroLer.removeClass("desce-conteudo").addClass("transicao-padrao");
-  //livrosPesquisa.removeClass("desce-conteudo-pesquisa").addClass("transicao-padrao");
 }

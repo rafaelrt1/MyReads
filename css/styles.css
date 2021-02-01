@@ -30,7 +30,7 @@ main {
 
 .modal-mudanca {
   position: fixed;
-  z-index: 10;
+  z-index: 1031;
   display: none;
   background-image: url(../img/info-icon.svg);
   background-size: 2vh;
@@ -128,10 +128,12 @@ form .pesquisa-botao:hover {
 
 .pesquisa-erro {
   display: none;
+  text-align: center;
 }
 
 .rodape {
   background-color:#444444;
+  position: fixed;
 }
 
 .texto-rodape {
@@ -164,6 +166,10 @@ form .pesquisa-botao:hover {
   transition: 1s;
 }
 
+#rodape {
+  position: fixed;
+}
+
 @media screen and (min-width: 320px) {
   .gif-loading {
     height: 20vh;
@@ -176,27 +182,26 @@ form .pesquisa-botao:hover {
   .modal-mudanca {
     margin-top: 3vh;
   }
-
-  .search-books-results {
-    padding-bottom: 25vh;
-  }
   
   .desce-conteudo-lidos {
     transform: translate(0, 16%);
-    padding-bottom: 28vh;
     transition: 1s;
   }
 
   .desce-conteudo {
     transform: translate(0, 11.5%);
-    padding-bottom: 28vh;
     transition: 1s;
   }
 
   .desce-conteudo-pesquisa {
     transform: translate(0, 2%);
-    padding-bottom: 28vh;
     transition: 1s
+  }
+
+  #rodape {
+    position: relative;
+    background-color: #444444;
+    height: 12%;
   }
 }
 
@@ -208,28 +213,33 @@ form .pesquisa-botao:hover {
 
   .desce-conteudo {
     transform: translate(0, 10.5%);
-    padding-bottom: 28vh;
     transition: 1s;
   }
 
   .desce-conteudo-pesquisa {
     transform: translate(0, 2%);
-    padding-bottom: 28vh;
     transition: 1s
+  }
+
+  #rodape {
+    position: relative;
+    height: 11%;
   }
 }
 
 @media screen and (min-width: 425px) {
   .desce-conteudo {
     transform: translate(0, 14%);
-    padding-bottom: 28vh;
     transition: 1s;
   }
 
   .desce-conteudo-lidos {
     transform: translate(0, 24%);
-    padding-bottom: 28vh;
     transition: 1s;
+  }
+  #rodape {
+    position: relative;
+    height: 11%;
   }
 }
 
@@ -241,20 +251,21 @@ form .pesquisa-botao:hover {
 
   .desce-conteudo {
     transform: translate(0, 17%);
-    padding-bottom: 28vh;
     transition: 1s;
   }
 
   .desce-conteudo-lidos {
     transform: translate(0, 18%);
-    padding-bottom: 28vh;
     transition: 1s;
   }
   
   .desce-conteudo-pesquisa {
     transform: translate(0, 4%);
-    padding-bottom: 28vh;
     transition: 1s
+  }
+
+  #rodape {
+    position: fixed;
   }
 }
 
