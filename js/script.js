@@ -82,7 +82,6 @@ function montaLivrosPesquisa (tituloLivro, books) {
                 <option class="opcao-mover" value="1">Estou lendo</option>
                 <option class="opcao-mover" value="2">Quero ler</option>
                 <option class="opcao-mover" value="3">Lidos</option>
-                <option class="opcao-mover" value="4">Remover livro</option>
               </select>
             </div>
           </div>
@@ -128,7 +127,6 @@ function atualizaPagina() {
 }
 
 function desceConteudo() {
-  //erroPesquisa.toggleClass(".desce-erro-pesquisa");
   botaoHamburger.css("transition", "1s");
   livrosLendo.toggleClass("desce-conteudo");
   livrosLidos.toggleClass("desce-conteudo-lidos");

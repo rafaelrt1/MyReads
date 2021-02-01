@@ -11,8 +11,8 @@ function pesquisaLivros(tituloLivro) {
     else {
       montaLivrosPesquisa(tituloLivro, books);
     }
-    let opcaoMover = $(".opcao-livro");
-    opcaoMover.on("change", function(event) {
+    $("body").on("change", ".opcao-livro", function(event){
+      console.log("entrei")
       event.preventDefault();
       id = this.id;
       let valueSelected = this.value;

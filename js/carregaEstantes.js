@@ -24,18 +24,18 @@ function carregaEstantes() {
     }
       montaMeusLivros(books);
       gifCarregando.hide();
-      
-      let opcaoMover = $(".opcao-livro");
-      opcaoMover.on("change", function() {
+    
+      $("body").on("change", ".opcao-livro", function(event){
+        event.preventDefault();
         id = this.id;
+        let valueSelected = this.value;
         titulo = this.parentNode.children[0].innerHTML;
         console.log(titulo);
-        let valueSelected = this.value;
-        trocaEstante(books, id, valueSelected, titulo);
+        trocaEstante(books, id, valueSelected);
       })
   })
 
-  botaoPesquisar.on("click", function(event) {
+  $("body").on("click", "#start-search", function (event) {
     botaoHamburger.toggleClass("show");
     sobeConteudo();
     atualizaPagina();
