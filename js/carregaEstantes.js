@@ -30,7 +30,6 @@ function carregaEstantes() {
         id = this.id;
         let valueSelected = this.value;
         titulo = this.parentNode.children[0].innerHTML;
-        console.log(titulo);
         trocaEstante(books, id, valueSelected);
       })
   })
