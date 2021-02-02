@@ -10,19 +10,9 @@ function carregaEstantes() {
   
   getMyBooks().then(function(data) {
     const books = data.books;
-    if(livrosLendo.text()=='""') {
-      livrosLendo.text("Você não tem nenhum livro nesta estante.")
-      gifCarregando.hide();
-    }
-    else if (livrosLidos.text()==" ") {
-      livrosLidos.text("Você não tem nenhum livro nesta estante.")
-      gifCarregando.hide();
-    }
-    else if (queroLer.text()==" ") {
-      queroLer.text("Você não tem nenhum livro nesta estante.")
-      gifCarregando.hide();
-    }
+      esvaziaPagina();
       montaMeusLivros(books);
+      validaEstante();
       gifCarregando.hide();
     
       $("body").on("change", ".opcao-livro", function(event){
@@ -37,12 +27,17 @@ function carregaEstantes() {
   $("body").on("click", "#start-search", function (event) {
     botaoHamburger.toggleClass("show");
     sobeConteudo();
-    atualizaPagina();
+    esvaziaPagina();
     gifCarregando.show();
     textoPesquisa.css("display", "none");
     event.preventDefault();
     resultadoPesquisa.text("");
     let tituloLivro = $("#input-search-books").val();
-    pesquisaLivros(tituloLivro);
+    if (tituloLivro == "") {
+      textoPesquisa.text("Nada foi digitado no campo de pesquisa. Digite algo para pesquisar").show();;
+      gifCarregando.hide();
+    }
+    else
+      pesquisaLivros(tituloLivro);
   })
 }

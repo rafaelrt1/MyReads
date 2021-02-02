@@ -4,7 +4,6 @@ $(document).ready(function() {
 
 let gifCarregando = $(".gif-loading");
 let livrosPesquisa = $(".search-books");
-let resultadoPesquisa = $(".search-books-results"); 
 let livrosLendo = $(".livros-lendo");
 let livrosLidos = $(".livros-lidos");
 let queroLer = $(".livros-quero-ler");
@@ -14,6 +13,7 @@ let opcaoMover = $(".opcao-livro");
 let botaoPesquisar = $("#start-search");
 let botaoHamburger = $("#navbarTogglerDemo02");
 let erroPesquisa = $(".pesquisa-erro");
+let resultadoPesquisa = $(".search-books-results"); 
 
 function montaMeusLivros (books) {
   books.forEach(function(book){
@@ -22,7 +22,7 @@ function montaMeusLivros (books) {
       imagem = book.imageLinks.thumbnail;
     }
     else{
-      imagem = "https://cima-afrique.org/cima/images/not-available.png";
+      imagem = `img/not-available.png`;
     }
     let titulo = book.title;
     let autores = book.authors;
@@ -61,7 +61,7 @@ function montaLivrosPesquisa (tituloLivro, books) {
       imagem = book.imageLinks.thumbnail;
     }
     else{
-      imagem = "https://cima-afrique.org/cima/images/not-available.png";
+      imagem = `img/not-available.png`;
     } 
     let titulo = book.title;
     let autores = book.authors;
@@ -94,33 +94,30 @@ function montaLivrosPesquisa (tituloLivro, books) {
 
 function adicionaNaEstante(listaItem, estante, titulo) { 
   if(estante=="currentlyReading") {
-    livrosLendo.append(listaItem);
-    gifCarregando.toggle();
+    livrosLendo.append(listaItem); 
   }
 
   else if(estante=="wantToRead") {
     queroLer.append(listaItem);
-    gifCarregando.toggle();
   }
   
   else if (estante=="read") {
     livrosLidos.append(listaItem);
-    gifCarregando.toggle();
   }
+  gifCarregando.toggle();
 }
 
 function exibeResultadoPesquisa(tituloLivro, listaItem) {
   livrosLendo.hide();
   livrosLidos.hide();
-  queroLer.hide();;
-  textoPesquisa.css("display", "inline-block").text(`Exibindo resultados para pesquisa por: ${tituloLivro}`);
-  let resultadoPesquisa = $(".search-books-results"); 
+  queroLer.hide();
+  textoPesquisa.text(`Exibindo resultados para pesquisa por: ${tituloLivro}`).show();
   resultadoPesquisa.append(listaItem);
   resultadoPesquisa.css("display", "flex");
   gifCarregando.hide();
 }
 
-function atualizaPagina() {
+function esvaziaPagina() {
   livrosLendo.text("");
   livrosLidos.text("");
   queroLer.text("");
@@ -128,6 +125,7 @@ function atualizaPagina() {
 
 function desceConteudo() {
   botaoHamburger.css("transition", "1s");
+  textoPesquisa.css("desce-conteudo");
   livrosLendo.toggleClass("desce-conteudo");
   livrosLidos.toggleClass("desce-conteudo-lidos");
   queroLer.toggleClass("desce-conteudo");
@@ -148,8 +146,8 @@ function mostraAvisoMudanca() {
   botaoHamburger.on("hide.bs.collapse", function(){
     sobeConteudo();
   })
-  var alertaMudanca = $(".modal-mudanca");
-  var textoAlertaMudanca = $(".texto-alerta-mudanca");
+  let alertaMudanca = $(".modal-mudanca");
+  let textoAlertaMudanca = $(".texto-alerta-mudanca");
   if (prateleira == "none"){
     textoAlertaMudanca.text(`O livro "${titulo}" foi removido`);
   }

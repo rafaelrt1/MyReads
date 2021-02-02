@@ -1,8 +1,4 @@
 function trocaEstante (books, id, valueSelected) {
-  livrosLidos.text("");
-  livrosLendo.text("");
-  queroLer.text("");
-  
   if(valueSelected==1) {
     estante = "currentlyReading";
   }
@@ -17,8 +13,7 @@ function trocaEstante (books, id, valueSelected) {
   }
   
   updateBook({id}, estante).then(function() {
-    carregaEstantes();
-
+    esvaziaPagina();
     if (estante == "read"){
       prateleira = "Lidos"; 
     }
@@ -32,5 +27,7 @@ function trocaEstante (books, id, valueSelected) {
       prateleira = "none";
     }
     mostraAvisoMudanca();
+    esvaziaPagina();
+    carregaEstantes();
   })
 }
