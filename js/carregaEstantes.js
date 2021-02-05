@@ -25,13 +25,13 @@ function carregaEstantes() {
   })
 
   $("body").on("click", "#start-search", function (event) {
+    //resultadoPesquisa.hide();
     botaoHamburger.toggleClass("show");
     sobeConteudo();
     esvaziaPagina();
     gifCarregando.show();
     textoPesquisa.css("display", "none");
     event.preventDefault();
-    resultadoPesquisa.text("");
     let tituloLivro = $("#input-search-books").val();
     if (tituloLivro == "") {
       textoPesquisa.text("Nada foi digitado no campo de pesquisa. Digite algo para pesquisar").show();;

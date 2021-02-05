@@ -92,7 +92,7 @@ function montaLivrosPesquisa (tituloLivro, books) {
   })
 }
 
-function adicionaNaEstante(listaItem, estante, titulo) { 
+function adicionaNaEstante(listaItem, estante) { 
   if(estante=="currentlyReading") {
     livrosLendo.append(listaItem); 
   }
@@ -108,6 +108,7 @@ function adicionaNaEstante(listaItem, estante, titulo) {
 }
 
 function exibeResultadoPesquisa(tituloLivro, listaItem) {
+  resultadoPesquisa.hide();
   livrosLendo.hide();
   livrosLidos.hide();
   queroLer.hide();

@@ -7,6 +7,7 @@ function pesquisaLivros(tituloLivro) {
       gifCarregando.hide();
     }
     else {
+      resultadoPesquisa.text("");
       montaLivrosPesquisa(tituloLivro, books);
     }
     $("body").on("change", ".opcao-livro", function(event){
