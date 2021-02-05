@@ -30,7 +30,7 @@ main {
 
 .modal-mudanca {
   position: fixed;
-  z-index: 1031;
+  z-index: 1;
   display: none;
   background-image: url(../img/info-icon.svg);
   background-size: 2vh;
@@ -52,6 +52,10 @@ main {
   background-color: #444444;
 }
 
+#ativo {
+  color: #3311FF; 
+}
+
 #menu-link {
   color: #EFEFEF;
 }
@@ -71,7 +75,7 @@ form .pesquisa-botao:hover {
 
 .gif-loading {
   display: none;
-  height: 10vh;
+  height: auto;
   padding-left: 10vw;
 }
 
@@ -102,7 +106,7 @@ form .pesquisa-botao:hover {
 
 .card-espaco {
   width: 12rem;
-  height: 52vh;
+  height: auto;
 }
 
 #imagem-card {
@@ -131,19 +135,9 @@ form .pesquisa-botao:hover {
   text-align: center;
 }
 
-.desce-conteudo-lidos {
-  transform: translate(0, 0);
-  transition: 0s;
-}
-
 .desce-conteudo {
   transform: translate(0, 0);
   transition: 0s;
-}
-
-.desce-conteudo-pesquisa {
-  transform: translate(0, 0);
-  transition: 0s
 }
 
 .rodape {
@@ -177,148 +171,46 @@ form .pesquisa-botao:hover {
   display: none;
 }
 
-.transicao-padrao {
-  transition: 1s;
-}
-
-#rodape {
-  position: fixed;
-}
-
 @media screen and (min-width: 320px) {
   .gif-loading {
     height: 20vh;
   }
-  .card-espaco {
-    width: 12rem;
-    height: 65vh;
-  }
 
   .modal-mudanca {
-    margin-top: 3vh;
-  }
-
-  .desce-conteudo-lidos {
-    transform: translate(0, 16%);
-    transition: 1s;
+    margin-top: 2vh;
   }
 
   .desce-conteudo {
-    transform: translate(0, 11.5%);
-    transition: 1s;
-  }
-
-  .desce-conteudo-pesquisa {
-    transform: translate(0, 2%);
-    transition: 1s
-  }
-
-  #rodape {
-    position: relative;
-    background-color: #444444;
-    height: 12%;
+    transform: translateY(29vh);
   }
 }
 
 @media screen and (min-width: 375px) {
-  .card-espaco {
-    width: 12rem;
-    height: 65vh;
-  }
-
   .desce-conteudo {
-    transform: translate(0, 10.5%);
-    transition: 1s;
-  }
-
-  .desce-conteudo-pesquisa {
-    transform: translate(0, 2%);
-    transition: 1s
-  }
-
-  #rodape {
-    position: relative;
-    height: 11%;
+    transform: translateY(29vh);
   }
 }
 
 @media screen and (min-width: 425px) {
   .desce-conteudo {
-    transform: translate(0, 14%);
-    transition: 1s;
-  }
-
-  .desce-conteudo-lidos {
-    transform: translate(0, 24%);
-    transition: 1s;
-  }
-  #rodape {
-    position: relative;
-    height: 11%;
+    transform: translateY(29vh);
   }
 }
 
 @media screen and (min-width: 768px) {
-  .card-espaco {
-    width: 12rem;
-    height: 50vh;
-  }
-
   .desce-conteudo {
-    transform: translate(0, 17%);
-    transition: 1s;
-  }
-
-  .desce-conteudo-lidos {
-    transform: translate(0, 18%);
-    transition: 1s;
-  }
-  
-  .desce-conteudo-pesquisa {
-    transform: translate(0, 4%);
-    transition: 1s
-  }
-
-  #rodape {
-    position: fixed;
+    transform: translateY(18vh);
   }
 }
 
 @media screen and (min-width: 992px) {
-  .desce-conteudo-lidos {
-    transform: translate(0, 0);
-    transition: 0s;
-  }
-
   .desce-conteudo {
-    transform: translate(0, 0);
-    transition: 0s;
-  }
-
-  .desce-conteudo-pesquisa {
-    transform: translate(0, 0);
-    transition: 0s
+    transform: translateY(0);
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .card-espaco {
-    width: 12rem;
-    height: 33vh;
-  }
-
-  .desce-conteudo-lidos {
-    transform: translate(0, 0);
-    transition: 0s;
-  }
-
   .desce-conteudo {
-    transform: translate(0, 0);
-    transition: 0s;
-  }
-
-  .desce-conteudo-pesquisa {
-    transform: translate(0, 0);
-    transition: 0s
+    transform: translateY(0);
   }
 }

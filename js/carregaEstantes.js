@@ -25,7 +25,7 @@ function carregaEstantes() {
   })
 
   $("body").on("click", "#start-search", function (event) {
-    //resultadoPesquisa.hide();
+    resultadoPesquisa.hide();
     botaoHamburger.toggleClass("show");
     sobeConteudo();
     esvaziaPagina();

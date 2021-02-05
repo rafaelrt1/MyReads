@@ -34,11 +34,11 @@ function montaMeusLivros (books) {
       <div class="row estilo-card">
         <div class="col-sm-12">
           <div class="card card-espaco">
-            <img id="imagem-card" src="${imagem}" class="card-img-top" alt="...">
+            <img id="imagem-card" src="${imagem}" class="card-img-top" alt="Capa do Livro">
             <div class="card-body">
               <h5 class="card-title titulo-card">${titulo}</h5>
               <p class="card-text texto-card">${autores}</p>
-              <select id="${id}" class="opcao-livro form-select">
+              <select id="${id}" class="opcao-livro form-select">              
                 <option class="opcao-mover" selected disabled>Mover para...</option>
                 <option class="opcao-mover" value="1">Estou lendo</option>
                 <option class="opcao-mover" value="2">Quero ler</option>
@@ -94,14 +94,20 @@ function montaLivrosPesquisa (tituloLivro, books) {
 
 function adicionaNaEstante(listaItem, estante) { 
   if(estante=="currentlyReading") {
+    let esconder = listaItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[5][1];
+    $(esconder).remove();
     livrosLendo.append(listaItem); 
   }
 
   else if(estante=="wantToRead") {
+    let esconder = listaItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[5][2];
+    $(esconder).remove();
     queroLer.append(listaItem);
   }
   
   else if (estante=="read") {
+    let esconder = listaItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[5][3];
+    $(esconder).remove();
     livrosLidos.append(listaItem);
   }
   gifCarregando.toggle();
@@ -125,19 +131,12 @@ function esvaziaPagina() {
 }
 
 function desceConteudo() {
-  botaoHamburger.css("transition", "1s");
-  textoPesquisa.css("desce-conteudo");
-  livrosLendo.toggleClass("desce-conteudo");
-  livrosLidos.toggleClass("desce-conteudo-lidos");
-  queroLer.toggleClass("desce-conteudo");
-  livrosPesquisa.toggleClass("desce-conteudo-pesquisa");
+  botaoHamburger.css("transition", "0s");
+  $("main").toggleClass("desce-conteudo");
 }
 
 function sobeConteudo() {
-  livrosLendo.toggleClass("desce-conteudo").addClass("transicao-padrao");
-  livrosLidos.toggleClass("desce-conteudo-lidos").addClass("transicao-padrao");
-  queroLer.toggleClass("desce-conteudo").addClass("transicao-padrao");
-  livrosPesquisa.toggleClass("desce-conteudo-pesquisa").addClass("transicao-padrao");
+  $("main").toggleClass("desce-conteudo");
 }
 
 function mostraAvisoMudanca() {
